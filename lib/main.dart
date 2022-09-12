@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:photomapalbummobile/screens/album/album_screen.dart';
+import 'package:photomapalbummobile/screens/auth/login_screen.dart';
+import 'package:photomapalbummobile/screens/auth/register_screen.dart';
+import 'package:photomapalbummobile/screens/home/home_screen.dart';
+import 'package:photomapalbummobile/screens/profile/profile_screen.dart';
+import 'package:photomapalbummobile/screens/settings/settings_screen.dart';
 
 void main() {
   runApp(const PhotoMapAlbumApp());
@@ -11,9 +17,16 @@ class PhotoMapAlbumApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "PhotoMapAlbum",
-      home: const HomePage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
+      routes: {
+        HomeScreen.path: (context) => HomeScreen(),
+        AlbumScreen.path: (context) => AlbumScreen(),
+        LoginScreen.path: (context) => LoginScreen(),
+        RegisterScreen.path: (context) => RegisterScreen(),
+        ProfileScreen.path: (context) => ProfileScreen(),
+        SettingsScreen.path: (context) => SettingsScreen(),
+      },
     );
   }
 }
