@@ -19,7 +19,8 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pushReplacementNamed(context, HomeScreen.path);
+            Navigator.pushNamedAndRemoveUntil(
+                context, HomeScreen.path, (_) => false);
           },
           child: const Text("Zaloguj"),
         ),
