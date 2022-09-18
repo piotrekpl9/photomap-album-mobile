@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:photomapalbummobile/screens/home/home_screen.dart';
+import 'package:photomapalbummobile/screen/album/album_screen.dart';
+import 'package:photomapalbummobile/screen/home/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static String path = "/";
@@ -20,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: ElevatedButton(
           onPressed: () {
             Navigator.pushNamedAndRemoveUntil(
-                context, HomeScreen.path, (_) => false);
+                context, AlbumScreen.path, (_) => false);
           },
           child: const Text("Zaloguj"),
         ),
