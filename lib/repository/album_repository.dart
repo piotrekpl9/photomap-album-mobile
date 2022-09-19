@@ -1,6 +1,9 @@
+import 'package:photomapalbummobile/repository/album_repository_abstraction.dart';
+
 import '../model/album/album.dart';
 
-class AlbumRepository {
+class AlbumRepository extends AlbumRepositoryAbstraction {
+  @override
   Future<List<Album>> fetchAlbums() async {
     return <Album>[
       Album("1", "Test", "1", DateTime.now()),
