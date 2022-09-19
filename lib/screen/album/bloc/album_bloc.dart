@@ -2,12 +2,13 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:photomapalbummobile/model/album/album.dart';
 import 'package:photomapalbummobile/repository/album_repository.dart';
+import 'package:photomapalbummobile/repository/album_repository_abstraction.dart';
 
 part 'album_event.dart';
 part 'album_state.dart';
 
 class AlbumBloc extends Bloc<AlbumEvent, AlbumState> {
-  final AlbumRepository _albumRepository;
+  final AlbumRepositoryAbstraction _albumRepository;
 
   AlbumBloc(this._albumRepository) : super(AlbumLoading()) {
     on<FetchDataEvent>(_fetchAlbumData);
