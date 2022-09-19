@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:photomapalbummobile/screens/album/album_screen.dart';
-import 'package:photomapalbummobile/screens/auth/login_screen.dart';
-import 'package:photomapalbummobile/screens/auth/register_screen.dart';
-import 'package:photomapalbummobile/screens/home/home_screen.dart';
-import 'package:photomapalbummobile/screens/profile/profile_screen.dart';
-import 'package:photomapalbummobile/screens/settings/settings_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:photomapalbummobile/repository/album_repository.dart';
+import 'package:photomapalbummobile/repository/auth_repository.dart';
+import 'package:photomapalbummobile/repository/profile_repository.dart';
+import 'package:photomapalbummobile/screen/album/album_screen.dart';
+import 'package:photomapalbummobile/screen/album/bloc/album_bloc.dart';
+import 'package:photomapalbummobile/screen/auth/bloc/login/login_bloc.dart';
+import 'package:photomapalbummobile/screen/auth/bloc/register/register_bloc.dart';
+import 'package:photomapalbummobile/screen/auth/login_screen.dart';
+import 'package:photomapalbummobile/screen/auth/register_screen.dart';
+import 'package:photomapalbummobile/screen/home/bloc/home_bloc.dart';
+import 'package:photomapalbummobile/screen/home/home_screen.dart';
+import 'package:photomapalbummobile/screen/profile/bloc/profile_bloc.dart';
+import 'package:photomapalbummobile/screen/profile/profile_screen.dart';
+import 'package:photomapalbummobile/screen/settings/bloc/settings_bloc.dart';
+import 'package:photomapalbummobile/screen/settings/settings_screen.dart';
+import 'package:photomapalbummobile/service/locator.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setup();
   runApp(const PhotoMapAlbumApp());
 }
 
 class PhotoMapAlbumApp extends StatelessWidget {
   const PhotoMapAlbumApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,36 +32,53 @@ class PhotoMapAlbumApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
       routes: {
-        HomeScreen.path: (context) => HomeScreen(),
-        AlbumScreen.path: (context) => AlbumScreen(),
-        LoginScreen.path: (context) => LoginScreen(),
-        RegisterScreen.path: (context) => RegisterScreen(),
-        ProfileScreen.path: (context) => ProfileScreen(),
-        SettingsScreen.path: (context) => SettingsScreen(),
+        HomeScreen.path: (context) => RepositoryProvider(
+              create: (context) => AlbumRepository(),
+              child: BlocProvider(
+                create: (context) => HomeBloc(context.read<AlbumRepository>()),
+                child: const HomeScreen(),
+              ),
+            ),
+        AlbumScreen.path: ((context) => RepositoryProvider(
+              create: (context) => locator.get<AlbumRepository>(),
+              child: BlocProvider(
+                create: (context) => AlbumBloc(context.read<AlbumRepository>())
+                  ..add(const FetchDataEvent()),
+                child: const AlbumScreen(),
+              ),
+            )),
+        LoginScreen.path: (context) => RepositoryProvider(
+              create: (context) => locator.get<AuthRepository>(),
+              child: BlocProvider(
+                create: (context) => LoginBloc(context.read<AuthRepository>()),
+                child: const LoginScreen(),
+              ),
+            ),
+        RegisterScreen.path: (context) => RepositoryProvider(
+              create: (context) => locator.get<AuthRepository>(),
+              child: BlocProvider(
+                create: (context) =>
+                    RegisterBloc(context.read<AuthRepository>()),
+                child: const RegisterScreen(),
+              ),
+            ),
+        ProfileScreen.path: (context) => RepositoryProvider(
+              create: (context) => ProfileRepository(),
+              child: BlocProvider(
+                create: (context) =>
+                    ProfileBloc(context.read<ProfileRepository>()),
+                child: const ProfileScreen(),
+              ),
+            ),
+        SettingsScreen.path: (context) => RepositoryProvider(
+              create: (context) => ProfileRepository(),
+              child: BlocProvider(
+                create: (context) =>
+                    SettingsBloc(context.read<ProfileRepository>()),
+                child: const SettingsScreen(),
+              ),
+            ),
       },
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-          child: Text("PhotoMapAlbum"),
-        ),
-      ),
-      body: const Center(
-        child: Text("Test"),
-      ),
     );
   }
 }
