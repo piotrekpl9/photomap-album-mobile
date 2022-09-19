@@ -4,7 +4,7 @@ import 'package:photomapalbummobile/repository/album_repository.dart';
 import 'package:photomapalbummobile/repository/auth_repository.dart';
 import 'package:photomapalbummobile/repository/profile_repository.dart';
 import 'package:photomapalbummobile/screen/album/album_screen.dart';
-import 'package:photomapalbummobile/screen/album/bloc/bloc/album_bloc.dart';
+import 'package:photomapalbummobile/screen/album/bloc/album_bloc.dart';
 import 'package:photomapalbummobile/screen/auth/bloc/login/login_bloc.dart';
 import 'package:photomapalbummobile/screen/auth/bloc/register/register_bloc.dart';
 import 'package:photomapalbummobile/screen/auth/login_screen.dart';
@@ -79,29 +79,6 @@ class PhotoMapAlbumApp extends StatelessWidget {
               ),
             ),
       },
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-          child: Text("PhotoMapAlbum"),
-        ),
-      ),
-      body: const Center(
-        child: Text("Test"),
-      ),
     );
   }
 }
