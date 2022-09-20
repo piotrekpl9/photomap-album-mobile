@@ -43,7 +43,7 @@ class PhotoMapAlbumApp extends StatelessWidget {
                       locator.get<AlbumRepositoryAbstraction>(),
                   child: BlocProvider(
                     create: (context) =>
-                        HomeBloc(context.read<AlbumRepository>()),
+                        HomeBloc(context.read<AlbumRepositoryAbstraction>()),
                     child: const HomeScreen(),
                   ),
                 ),
