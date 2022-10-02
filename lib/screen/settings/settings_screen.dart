@@ -3,7 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class SettingsScreen extends StatefulWidget {
-  static String path = "/settings";
+  static String route = "/settings";
   const SettingsScreen({Key? key}) : super(key: key);
 
   @override

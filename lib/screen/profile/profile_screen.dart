@@ -3,7 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class ProfileScreen extends StatefulWidget {
-  static String path = "/profile";
+  static String route = "/profile";
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override

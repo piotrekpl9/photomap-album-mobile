@@ -3,7 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class RegisterScreen extends StatefulWidget {
-  static String path = "/register";
+  static String route = "/register";
   const RegisterScreen({Key? key}) : super(key: key);
 
   @override
