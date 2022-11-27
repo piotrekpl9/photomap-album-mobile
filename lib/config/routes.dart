@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:photomapalbummobile/feature/album/album_screen.dart';
+import 'package:photomapalbummobile/feature/album/bloc/album_bloc.dart';
+import 'package:photomapalbummobile/feature/auth/UI/login_screen.dart';
+import 'package:photomapalbummobile/feature/auth/UI/register_screen.dart';
+import 'package:photomapalbummobile/feature/profile/bloc/profile_bloc.dart';
+import 'package:photomapalbummobile/feature/profile/profile_screen.dart';
+import 'package:photomapalbummobile/feature/settings/bloc/settings_bloc.dart';
+import 'package:photomapalbummobile/feature/settings/settings_screen.dart';
 import 'package:photomapalbummobile/repository/auth_repository_abstraction.dart';
-import 'package:photomapalbummobile/screen/auth/UI/login_screen.dart';
-import 'package:photomapalbummobile/screen/auth/UI/register_screen.dart';
-import 'package:photomapalbummobile/screen/auth/bloc/login/login_bloc.dart';
 
 import '../repository/album_repository_abstraction.dart';
 import '../repository/user_repository_abstraction.dart';
-import '../screen/album/album_screen.dart';
-import '../screen/album/bloc/album_bloc.dart';
 import '../screen/home/bloc/home_bloc.dart';
 import '../screen/home/home_screen.dart';
-import '../screen/profile/bloc/profile_bloc.dart';
-import '../screen/profile/profile_screen.dart';
-import '../screen/settings/bloc/settings_bloc.dart';
-import '../screen/settings/settings_screen.dart';
 import 'locator.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
@@ -35,11 +34,7 @@ Map<String, Widget Function(BuildContext)> routes = {
           child: const AlbumScreen(),
         ),
       )),
-  LoginScreen.route: (context) => BlocProvider(
-        create: (context) =>
-            LoginBloc(context.read<AuthRepositoryAbstraction>()),
-        child: const LoginScreen(),
-      ),
+  LoginScreen.route: (context) => const LoginScreen(),
   RegisterScreen.route: (context) => const RegisterScreen(),
   ProfileScreen.route: (context) => RepositoryProvider(
         create: (context) => locator.get<UserRepositoryAbstraction>(),
