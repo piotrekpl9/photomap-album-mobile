@@ -1,6 +1,5 @@
-import 'package:photomapalbummobile/repository/album_repository_abstraction.dart';
-
-import '../model/album/album.dart';
+import 'package:photomapalbummobile/feature/album/model/album.dart';
+import 'package:photomapalbummobile/feature/album/repository/album_repository_abstraction.dart';
 
 class AlbumRepository extends AlbumRepositoryAbstraction {
   @override

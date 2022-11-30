@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:photomapalbummobile/repository/user_repository.dart';
-import 'package:photomapalbummobile/repository/user_repository_abstraction.dart';
+import 'package:photomapalbummobile/feature/user/repository/user_repository_abstraction.dart';
 
 part 'profile_event.dart';
 part 'profile_state.dart';

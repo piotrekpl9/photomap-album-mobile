@@ -1,8 +1,9 @@
 import 'dart:async';
 
-import 'package:photomapalbummobile/model/user/user.dart';
-import 'package:photomapalbummobile/repository/user_repository_abstraction.dart';
+import 'package:photomapalbummobile/feature/shared/model/user/user.dart';
 import 'package:uuid/uuid.dart';
+
+import 'user_repository_abstraction.dart';
 
 class UserRepository extends UserRepositoryAbstraction {
   User? _user;

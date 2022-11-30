@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:photomapalbummobile/repository/user_repository.dart';
 
-import '../../../repository/user_repository_abstraction.dart';
+import 'package:photomapalbummobile/feature/user/repository/user_repository_abstraction.dart';
 
 part 'settings_event.dart';
 part 'settings_state.dart';

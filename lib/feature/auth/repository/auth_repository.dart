@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:photomapalbummobile/repository/auth_repository_abstraction.dart';
+import 'package:photomapalbummobile/feature/auth/repository/auth_repository_abstraction.dart';
 
 class AuthRepository extends AuthRepositoryAbstraction {
   final _controller = StreamController<AuthenticationStatus>();

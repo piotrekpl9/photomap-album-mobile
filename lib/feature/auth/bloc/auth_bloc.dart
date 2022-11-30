@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:photomapalbummobile/repository/auth_repository_abstraction.dart';
-import 'package:photomapalbummobile/repository/user_repository.dart';
+import 'package:photomapalbummobile/feature/auth/repository/auth_repository_abstraction.dart';
 import 'package:uuid/uuid.dart';
 
 part 'auth_event.dart';

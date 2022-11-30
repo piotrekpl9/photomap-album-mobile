@@ -1,4 +1,4 @@
-import '../model/album/album.dart';
+import 'package:photomapalbummobile/feature/album/model/album.dart';
 
 abstract class AlbumRepositoryAbstraction {
   Future<List<Album>> fetchAlbums();

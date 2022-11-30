@@ -1,5 +1,3 @@
-import 'package:photomapalbummobile/model/album/album_entry.dart';
-
 class Album {
   late String id;
   late String title;

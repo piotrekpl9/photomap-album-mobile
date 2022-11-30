@@ -1,9 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:photomapalbummobile/model/album/album.dart';
-import 'package:photomapalbummobile/repository/album_repository.dart';
-import 'package:photomapalbummobile/repository/album_repository_abstraction.dart';
-
+import 'package:photomapalbummobile/feature/album/model/album.dart';
+import 'package:photomapalbummobile/feature/album/repository/album_repository_abstraction.dart';
 part 'album_event.dart';
 part 'album_state.dart';
 

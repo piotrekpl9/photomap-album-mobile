@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:photomapalbummobile/consts/appcolors.dart';
 import 'package:photomapalbummobile/consts/appstrings.dart';
-import 'package:photomapalbummobile/feature/auth/bloc/auth/auth_bloc.dart';
-import 'package:photomapalbummobile/repository/auth_repository_abstraction.dart';
+import 'package:photomapalbummobile/feature/auth/bloc/auth_bloc.dart';
+import 'package:photomapalbummobile/feature/auth/repository/auth_repository_abstraction.dart';
 import 'config/locator.dart';
 import 'config/routes.dart';
 
